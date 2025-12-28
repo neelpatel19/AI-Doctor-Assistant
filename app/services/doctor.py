@@ -2,6 +2,7 @@ from openai import OpenAI
 from typing import List, Tuple, Dict
 from app.config import settings
 from app.services.embeddings import embedding_service
+import os
 
 # System prompt defining doctor behavior
 SYSTEM_PROMPT = """
@@ -21,7 +22,7 @@ class DoctorService:
     """Core AI Doctor logic"""
     
     def __init__(self):
-        self.client = OpenAI(api_key=settings.OPENAI_API_KEY)
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.model = "gpt-4o-mini"
         self.temperature = 0.7
         print("✅ OpenAI client initialized")

@@ -4,7 +4,7 @@ from typing import List
 
 class Settings(BaseSettings):
     # OpenAI
-    OPENAI_API_KEY: str
+    OPENAI_API_KEY: str = ""  # Ensure this is loaded from an environment variable
     
     # ChromaDB
     CHROMA_PERSIST_PATH: str = "chromadb_store"

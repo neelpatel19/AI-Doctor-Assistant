@@ -1,3 +1,4 @@
+import os
 import chromadb
 from sentence_transformers import SentenceTransformer
 from openai import OpenAI
@@ -13,7 +14,7 @@ collection = chroma_client.get_collection("medical_knowledge")
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 # Initialize OpenAI client
-client = OpenAI(api_key="REDACTED")  # or use env var
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  # or use env var
 
 # -----------------------------
 # System prompt (doctor behavior)
